@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply text-slate-900;
+  background: linear-gradient(120deg, #eef2ff, #f8fafc, #f3e8ff, #ccfbf1);
+  background-size: 220% 220%;
+}
+
+.bg-animated-gradient {
+  @apply animate-gradient-shift;
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #e2e8f0 0%, #f8fafc 35%, #e2e8f0 70%);
+  background-size: 200% 100%;
+  @apply animate-shimmer;
+}
+
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-btn:active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 10%, transparent 10.01%);
+  transform: scale(10);
+  opacity: 0;
+  transition: transform 0.45s, opacity 0.8s;
+}
+
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+}
+
+.particle-bg {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  opacity: 0.28;
+  animation: softBounce 4s ease-in-out infinite;
+}
